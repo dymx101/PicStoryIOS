@@ -22,6 +22,8 @@
 		EABC210117D43AD1005F93F1 /* TMDLayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC210017D43AD1005F93F1 /* TMDLayerAnimation.m */; };
 		EABC210317D43B7B005F93F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABC210217D43B7B005F93F1 /* QuartzCore.framework */; };
 		EABC210617D4422E005F93F1 /* TMDStoryTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC210517D4422E005F93F1 /* TMDStoryTestVC.m */; };
+		EABC24FC17D46532005F93F1 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EABC24FB17D46532005F93F1 /* sample.jpg */; };
+		EABC24FE17D4679C005F93F1 /* mask.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EABC24FD17D4679C005F93F1 /* mask.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		EABC210217D43B7B005F93F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EABC210417D4422E005F93F1 /* TMDStoryTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDStoryTestVC.h; sourceTree = "<group>"; };
 		EABC210517D4422E005F93F1 /* TMDStoryTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDStoryTestVC.m; sourceTree = "<group>"; };
+		EABC24FB17D46532005F93F1 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
+		EABC24FD17D4679C005F93F1 /* mask.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mask.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 		EA539FE917CB5EC8004EBAD4 = {
 			isa = PBXGroup;
 			children = (
+				EABC24FD17D4679C005F93F1 /* mask.jpg */,
+				EABC24FB17D46532005F93F1 /* sample.jpg */,
 				EABC210217D43B7B005F93F1 /* QuartzCore.framework */,
 				EA539FFB17CB5EC8004EBAD4 /* PicStoryIOS */,
 				EA539FF417CB5EC8004EBAD4 /* Frameworks */,
@@ -186,6 +192,8 @@
 				EA53A00A17CB5EC8004EBAD4 /* Default@2x.png in Resources */,
 				EA53A00C17CB5EC8004EBAD4 /* Default-568h@2x.png in Resources */,
 				EA53A01217CB5EC8004EBAD4 /* TMDViewController.xib in Resources */,
+				EABC24FC17D46532005F93F1 /* sample.jpg in Resources */,
+				EABC24FE17D4679C005F93F1 /* mask.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

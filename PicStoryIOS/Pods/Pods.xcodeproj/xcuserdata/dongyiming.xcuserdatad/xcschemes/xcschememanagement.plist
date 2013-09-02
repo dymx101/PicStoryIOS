@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Pods-NYXImagesKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -22,7 +27,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8290072A2E3B448E9E962AA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9E23922C7F324A3E9C69F492</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A6C3A5F3D5804375931A31AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D231E264407F4EF4B0AFE3DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E69EC790C89E4F62A4B32B2D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9D9E9C5FDCA41CD8D9D4843</key>
 		<dict>
 			<key>primary</key>
 			<true/>
