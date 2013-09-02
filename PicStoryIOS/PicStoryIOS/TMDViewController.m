@@ -27,41 +27,125 @@
 {
     [super viewDidLoad];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startStoryAction:)];
+    [self.view addGestureRecognizer:tap];
 	
     [self testAnimation];
+}
+
+-(CGRect)frameScreen
+{
+    return CGRectMake(0, 120, 320, 240);
+}
+
+-(CGRect)frameLeftHide
+{
+    return CGRectMake(-320, 120, 320, 240);
+}
+
+-(CGRect)frameRightHide
+{
+    return CGRectMake(320, 120, 320, 240);
+}
+
+-(CGRect)frameTopHide
+{
+    return CGRectMake(0, -240, 320, 240);
+}
+
+-(CGRect)frameBottomHide
+{
+    return CGRectMake(0, 240, 320, 240);
+}
+
+-(CGRect)frameRandom
+{
+    int i = arc4random() % 4;
+    switch (i)
+    {
+        case 0:
+            return [self frameLeftHide];
+            break;
+            
+        case 1:
+            return [self frameTopHide];
+            break;
+            
+        case 2:
+            return [self frameRightHide];
+            break;
+            
+        case 3:
+            return [self frameBottomHide];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return [self frameScreen];
 }
 
 
 -(void)testAnimation
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
+    UIView *view = [[UIView alloc] initWithFrame:[self frameRandom]];
     view.backgroundColor = [UIColor redColor];
-    [TMDLayerAnimation pulse:view.layer];
+    
+    CALayer *layer = [self createLayer];
+    
+    int num = arc4random() % 10 + 1;
+    NSString *imageName = [NSString stringWithFormat:@"%d.jpg", num];
+    UIImage *image = [UIImage imageNamed:imageName];
+    layer.contents = (id)image.CGImage;
+    [view.layer addSublayer:layer];
+    
+    [UIView animateWithDuration:.2f animations:^{
+        
+        view.frame = [self frameScreen];
+        
+    }];
+    
+    //[TMDLayerAnimation pulse:view.layer];
     [self.view addSubview:view];
     
     //[view slideInFrom:kFTAnimationBottom duration:.33f delegate:self];
     
-    CAAnimation *anim = [[FTAnimationManager sharedManager] slideInAnimationFor:view direction:kFTAnimationBottom duration:.33f delegate:self startSelector:NULL stopSelector:NULL];
-    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    [view.layer addAnimation:anim forKey:@"MySpecialAnimation"];
+//    CAAnimation *anim = [[FTAnimationManager sharedManager] slideInAnimationFor:view direction:kFTAnimationBottom duration:.33f delegate:self startSelector:NULL stopSelector:NULL];
+//    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    [view.layer addAnimation:anim forKey:@"MySpecialAnimation"];
     
     /////////////////////////
     
     
     //////////////////////
     
-    [CATransaction setDisableActions:NO];
-    _layer = [CALayer layer];
+    //[CATransaction setDisableActions:NO];
+//    _layer = [CALayer layer];
+//    
+//    _layer.bounds = CGRectMake(0, 0, 300, 200);
+//    _layer.position = CGPointMake(160, 250);
+//    _layer.backgroundColor = [UIColor blueColor].CGColor;
+//    _layer.borderColor = [UIColor redColor].CGColor;
+//    _layer.opacity = 1.0f;
+//    
+//    [self.view.layer addSublayer:_layer];
+//    [self performSelector:@selector(testImplicitLayerAnimation) withObject:nil afterDelay:1];
     
-    _layer.bounds = CGRectMake(0, 0, 300, 200);
-    _layer.position = CGPointMake(160, 250);
-    _layer.backgroundColor = [UIColor blueColor].CGColor;
-    _layer.borderColor = [UIColor redColor].CGColor;
-    _layer.opacity = 1.0f;
+}
+
+-(CALayer *)createLayer
+{
+    CALayer *layer = [CALayer layer];
     
-    [self.view.layer addSublayer:_layer];
-    [self performSelector:@selector(testImplicitLayerAnimation) withObject:nil afterDelay:1];
+    layer.bounds = CGRectMake(0, 0, 320, 240);
+    layer.position = CGPointMake(0, 0);
+    layer.anchorPoint = CGPointMake(0, 0);
+    layer.backgroundColor = [UIColor blueColor].CGColor;
+    layer.borderColor = [UIColor redColor].CGColor;
+    layer.opacity = 1.0f;
     
+    return layer;
 }
 
 -(void)testImageKit
@@ -91,13 +175,14 @@
 -(void)testImplicitLayerAnimation
 {
    // _layer.position = CGPointMake(100, 200);
-    //_layer.opacity = .2f;
+    _layer.opacity = .2f;
 }
 
 -(IBAction)startStoryAction:(id)sender
 {
-    TMDStoryTestVC *vc = [TMDStoryTestVC new];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self testAnimation];
+    //TMDStoryTestVC *vc = [TMDStoryTestVC new];
+    //[self presentViewController:vc animated:YES completion:nil];
 }
 
 @end
