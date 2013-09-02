@@ -20,6 +20,9 @@
 		EA53A00F17CB5EC8004EBAD4 /* TMDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA53A00E17CB5EC8004EBAD4 /* TMDViewController.m */; };
 		EA53A01217CB5EC8004EBAD4 /* TMDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA53A01017CB5EC8004EBAD4 /* TMDViewController.xib */; };
 		EAB3C57717D476C700A55A65 /* TMDViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C57617D476C700A55A65 /* TMDViewAnimation.m */; };
+		EAB3C57B17D4840300A55A65 /* TMDStory.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C57A17D4840300A55A65 /* TMDStory.m */; };
+		EAB3C57E17D4854C00A55A65 /* TMDMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C57D17D4854C00A55A65 /* TMDMovie.m */; };
+		EAB3C58117D485D300A55A65 /* TMDFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C58017D485D300A55A65 /* TMDFrame.m */; };
 		EABC210117D43AD1005F93F1 /* TMDLayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC210017D43AD1005F93F1 /* TMDLayerAnimation.m */; };
 		EABC210317D43B7B005F93F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABC210217D43B7B005F93F1 /* QuartzCore.framework */; };
 		EABC210617D4422E005F93F1 /* TMDStoryTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC210517D4422E005F93F1 /* TMDStoryTestVC.m */; };
@@ -59,6 +62,12 @@
 		EA53A01117CB5EC8004EBAD4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMDViewController.xib; sourceTree = "<group>"; };
 		EAB3C57517D476C700A55A65 /* TMDViewAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDViewAnimation.h; sourceTree = "<group>"; };
 		EAB3C57617D476C700A55A65 /* TMDViewAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDViewAnimation.m; sourceTree = "<group>"; };
+		EAB3C57917D4840300A55A65 /* TMDStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDStory.h; sourceTree = "<group>"; };
+		EAB3C57A17D4840300A55A65 /* TMDStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDStory.m; sourceTree = "<group>"; };
+		EAB3C57C17D4854C00A55A65 /* TMDMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDMovie.h; sourceTree = "<group>"; };
+		EAB3C57D17D4854C00A55A65 /* TMDMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDMovie.m; sourceTree = "<group>"; };
+		EAB3C57F17D485D300A55A65 /* TMDFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDFrame.h; sourceTree = "<group>"; };
+		EAB3C58017D485D300A55A65 /* TMDFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDFrame.m; sourceTree = "<group>"; };
 		EABC20FF17D43AD1005F93F1 /* TMDLayerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDLayerAnimation.h; sourceTree = "<group>"; };
 		EABC210017D43AD1005F93F1 /* TMDLayerAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDLayerAnimation.m; sourceTree = "<group>"; };
 		EABC210217D43B7B005F93F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -98,6 +107,7 @@
 		EA539FE917CB5EC8004EBAD4 = {
 			isa = PBXGroup;
 			children = (
+				EAB3C57817D483F100A55A65 /* Model */,
 				EABC250017D47533005F93F1 /* one_piece */,
 				EABC24FF17D46EEF005F93F1 /* ThirdParty */,
 				EABC24FD17D4679C005F93F1 /* mask.jpg */,
@@ -160,6 +170,19 @@
 				EA53A00B17CB5EC8004EBAD4 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAB3C57817D483F100A55A65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EAB3C57917D4840300A55A65 /* TMDStory.h */,
+				EAB3C57A17D4840300A55A65 /* TMDStory.m */,
+				EAB3C57C17D4854C00A55A65 /* TMDMovie.h */,
+				EAB3C57D17D4854C00A55A65 /* TMDMovie.m */,
+				EAB3C57F17D485D300A55A65 /* TMDFrame.h */,
+				EAB3C58017D485D300A55A65 /* TMDFrame.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EABC24FF17D46EEF005F93F1 /* ThirdParty */ = {
@@ -308,6 +331,9 @@
 				EABC210117D43AD1005F93F1 /* TMDLayerAnimation.m in Sources */,
 				EABC210617D4422E005F93F1 /* TMDStoryTestVC.m in Sources */,
 				EAB3C57717D476C700A55A65 /* TMDViewAnimation.m in Sources */,
+				EAB3C57B17D4840300A55A65 /* TMDStory.m in Sources */,
+				EAB3C57E17D4854C00A55A65 /* TMDMovie.m in Sources */,
+				EAB3C58117D485D300A55A65 /* TMDFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
