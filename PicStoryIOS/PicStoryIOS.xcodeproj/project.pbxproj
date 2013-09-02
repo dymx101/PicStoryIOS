@@ -21,6 +21,7 @@
 		EA53A01217CB5EC8004EBAD4 /* TMDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA53A01017CB5EC8004EBAD4 /* TMDViewController.xib */; };
 		EABC210117D43AD1005F93F1 /* TMDLayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC210017D43AD1005F93F1 /* TMDLayerAnimation.m */; };
 		EABC210317D43B7B005F93F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABC210217D43B7B005F93F1 /* QuartzCore.framework */; };
+		EABC210617D4422E005F93F1 /* TMDStoryTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC210517D4422E005F93F1 /* TMDStoryTestVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		EABC20FF17D43AD1005F93F1 /* TMDLayerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDLayerAnimation.h; sourceTree = "<group>"; };
 		EABC210017D43AD1005F93F1 /* TMDLayerAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDLayerAnimation.m; sourceTree = "<group>"; };
 		EABC210217D43B7B005F93F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EABC210417D4422E005F93F1 /* TMDStoryTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDStoryTestVC.h; sourceTree = "<group>"; };
+		EABC210517D4422E005F93F1 /* TMDStoryTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDStoryTestVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				EA539FFC17CB5EC8004EBAD4 /* Supporting Files */,
 				EABC20FF17D43AD1005F93F1 /* TMDLayerAnimation.h */,
 				EABC210017D43AD1005F93F1 /* TMDLayerAnimation.m */,
+				EABC210417D4422E005F93F1 /* TMDStoryTestVC.h */,
+				EABC210517D4422E005F93F1 /* TMDStoryTestVC.m */,
 			);
 			path = PicStoryIOS;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				EA53A00617CB5EC8004EBAD4 /* TMDAppDelegate.m in Sources */,
 				EA53A00F17CB5EC8004EBAD4 /* TMDViewController.m in Sources */,
 				EABC210117D43AD1005F93F1 /* TMDLayerAnimation.m in Sources */,
+				EABC210617D4422E005F93F1 /* TMDStoryTestVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
