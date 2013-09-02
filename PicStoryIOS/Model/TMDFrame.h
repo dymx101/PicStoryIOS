@@ -11,4 +11,7 @@
 @interface TMDFrame : NSObject
 @property (copy)    NSString        *imagePath;
 @property (strong)  NSMutableArray  *animations;
+@property (strong)  CAAnimation     *inAnimation;
+@property (strong)  CAAnimation     *outAnimation;
+
 @end

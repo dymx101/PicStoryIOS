@@ -86,28 +86,79 @@
     return [self frameScreen];
 }
 
+-(void)randomMoveAnimationWithImage:(UIImage *)aImage
+{
+    if (aImage)
+    {
+        UIView *view = [[UIView alloc] initWithFrame:[self frameRandom]];
+        CALayer *layer = [self createLayer];
+        
+        layer.contents = (id)aImage.CGImage;
+        
+        [view.layer addSublayer:layer];
+        [self.view addSubview:view];
+        
+        [UIView animateWithDuration:.2f animations:^{
+            
+            view.frame = [self frameScreen];
+            
+        }];
+    }
+}
+
+-(void)randomAlphaAnimationWithImage:(UIImage *)aImage
+{
+    if (aImage)
+    {
+        UIView *view = [[UIView alloc] initWithFrame:[self frameScreen]];
+        CALayer *layer = [self createLayer];
+        
+        layer.contents = (id)aImage.CGImage;
+        
+        [view.layer addSublayer:layer];
+        [self.view addSubview:view];
+        
+        view.alpha = 0.f;
+        [UIView animateWithDuration:.2f animations:^{
+            
+            view.alpha = 1.f;
+            
+        }];
+    }
+}
+
+-(void)randomAnimationWithImage:(UIImage *)aImage
+{
+    int rnd = arc4random() % 2;
+    switch (rnd)
+    {
+        case 0:
+            [self randomMoveAnimationWithImage:aImage];
+            break;
+            
+        case 1:
+            [self randomAlphaAnimationWithImage:aImage];
+            break;
+            
+        default:
+            break;
+    }
+}
 
 -(void)testAnimation
 {
-    UIView *view = [[UIView alloc] initWithFrame:[self frameRandom]];
-    view.backgroundColor = [UIColor redColor];
     
-    CALayer *layer = [self createLayer];
+    
+    
     
     int num = arc4random() % 10 + 1;
     NSString *imageName = [NSString stringWithFormat:@"%d.jpg", num];
     UIImage *image = [UIImage imageNamed:imageName];
-    layer.contents = (id)image.CGImage;
-    [view.layer addSublayer:layer];
     
-    [UIView animateWithDuration:.2f animations:^{
-        
-        view.frame = [self frameScreen];
-        
-    }];
+    [self randomAnimationWithImage:image];
     
     //[TMDLayerAnimation pulse:view.layer];
-    [self.view addSubview:view];
+    
     
     //[view slideInFrom:kFTAnimationBottom duration:.33f delegate:self];
     
