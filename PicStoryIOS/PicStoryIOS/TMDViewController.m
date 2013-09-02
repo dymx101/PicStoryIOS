@@ -7,6 +7,7 @@
 //
 
 #import "TMDViewController.h"
+#import "TMDLayerAnimation.h"
 
 @interface TMDViewController ()
 
@@ -17,7 +18,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+	
+    [self testAnimation];
+}
+
+-(void)testAnimation
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    view.backgroundColor = [UIColor blackColor];
+    [TMDLayerAnimation pulse:view.layer];
+    
+    [self.view addSubview:view];
 }
 
 - (void)didReceiveMemoryWarning
