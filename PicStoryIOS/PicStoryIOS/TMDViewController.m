@@ -26,9 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startStoryAction:)];
-    [self.view addGestureRecognizer:tap];
+    //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startStoryAction:)];
+    //[self.view addGestureRecognizer:tap];
 	
     [self testAnimation];
 }
@@ -58,26 +59,40 @@
     return CGRectMake(0, 240, 320, 240);
 }
 
+-(CGRect)frameZoomOut
+{
+    return CGRectMake(-160, 0, 640, 480);
+}
+
+-(CGRect)frameZoomIn
+{
+    return CGRectMake(160, 240, 0, 0);
+}
+
 -(CGRect)frameRandom
 {
-    int i = arc4random() % 4;
+    int i = arc4random() % 8;
     switch (i)
     {
         case 0:
             return [self frameLeftHide];
-            break;
             
         case 1:
             return [self frameTopHide];
-            break;
             
         case 2:
             return [self frameRightHide];
-            break;
             
         case 3:
             return [self frameBottomHide];
-            break;
+            
+        case 4:
+        case 5:
+            return [self frameZoomOut];
+            
+        case 6:
+        case 7:
+            return [self frameZoomIn];
             
         default:
             break;
@@ -91,17 +106,18 @@
     if (aImage)
     {
         UIView *view = [[UIView alloc] initWithFrame:[self frameRandom]];
-        CALayer *layer = [self createLayer];
         
-        layer.contents = (id)aImage.CGImage;
+        UIImageView *iv = [[UIImageView alloc] initWithImage:aImage];
+        iv.frame = view.bounds;
+        iv.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [view addSubview:iv];
         
-        [view.layer addSublayer:layer];
         [self.view addSubview:view];
         
         [UIView animateWithDuration:.2f animations:^{
-            
             view.frame = [self frameScreen];
-            
+        } completion:^(BOOL finished) {
+            [self performSelector:@selector(testAnimation) withObject:nil afterDelay:2];
         }];
     }
 }
@@ -111,32 +127,34 @@
     if (aImage)
     {
         UIView *view = [[UIView alloc] initWithFrame:[self frameScreen]];
-        CALayer *layer = [self createLayer];
         
-        layer.contents = (id)aImage.CGImage;
+        UIImageView *iv = [[UIImageView alloc] initWithImage:aImage];
+        iv.frame = view.bounds;
+        iv.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [view addSubview:iv];
         
-        [view.layer addSublayer:layer];
         [self.view addSubview:view];
         
         view.alpha = 0.f;
         [UIView animateWithDuration:.2f animations:^{
-            
-            view.alpha = 1.f;
-            
+            view.alpha = 1;
+        } completion:^(BOOL finished) {
+            [self performSelector:@selector(testAnimation) withObject:nil afterDelay:2];
         }];
     }
 }
 
 -(void)randomAnimationWithImage:(UIImage *)aImage
 {
-    int rnd = arc4random() % 2;
+    int rnd = arc4random() % 3;
     switch (rnd)
     {
         case 0:
+        case 1:
             [self randomMoveAnimationWithImage:aImage];
             break;
             
-        case 1:
+        case 2:
             [self randomAlphaAnimationWithImage:aImage];
             break;
             
@@ -147,13 +165,14 @@
 
 -(void)testAnimation
 {
-    
-    
-    
-    
-    int num = arc4random() % 10 + 1;
+    static int num = 1;
     NSString *imageName = [NSString stringWithFormat:@"%d.jpg", num];
     UIImage *image = [UIImage imageNamed:imageName];
+    num++;
+    if (num > 10)
+    {
+        num = 1;
+    }
     
     [self randomAnimationWithImage:image];
     
@@ -185,11 +204,11 @@
     
 }
 
--(CALayer *)createLayer
+-(CALayer *)createLayerWithRect:(CGRect)aRect
 {
     CALayer *layer = [CALayer layer];
     
-    layer.bounds = CGRectMake(0, 0, 320, 240);
+    layer.bounds = aRect;
     layer.position = CGPointMake(0, 0);
     layer.anchorPoint = CGPointMake(0, 0);
     layer.backgroundColor = [UIColor blueColor].CGColor;
