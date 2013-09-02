@@ -73,6 +73,7 @@
 		EA539FE917CB5EC8004EBAD4 = {
 			isa = PBXGroup;
 			children = (
+				EABC24FF17D46EEF005F93F1 /* ThirdParty */,
 				EABC24FD17D4679C005F93F1 /* mask.jpg */,
 				EABC24FB17D46532005F93F1 /* sample.jpg */,
 				EABC210217D43B7B005F93F1 /* QuartzCore.framework */,
@@ -131,6 +132,13 @@
 				EA53A00B17CB5EC8004EBAD4 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EABC24FF17D46EEF005F93F1 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdParty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

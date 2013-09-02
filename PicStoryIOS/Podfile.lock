@@ -1,13 +1,16 @@
 PODS:
   - AFNetworking (0.9.1)
+  - FTUtils (1.1.1)
   - NYXImagesKit (2.2)
 
 DEPENDENCIES:
   - AFNetworking (= 0.9.1)
+  - FTUtils
   - NYXImagesKit
 
 SPEC CHECKSUMS:
   AFNetworking: 081ec3c1f4768c87ae79d69a96fcc9479e232e81
+  FTUtils: 7d4a9e255a9b0b1d0ec22f27d819862eb205c3bc
   NYXImagesKit: 945719043b7b06078ce20322799dcd1776bc3cea
 
 COCOAPODS: 0.22.2

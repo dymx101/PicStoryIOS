@@ -11,6 +11,8 @@
 
 #import "TMDStoryTestVC.h"
 #import "NYXImagesKit.h"
+#import "FTAnimation.h"
+#import "FTAnimationManager.h"
 
 @interface TMDViewController ()
 
@@ -36,6 +38,12 @@
     view.backgroundColor = [UIColor redColor];
     [TMDLayerAnimation pulse:view.layer];
     [self.view addSubview:view];
+    
+    //[view slideInFrom:kFTAnimationBottom duration:.33f delegate:self];
+    
+    CAAnimation *anim = [[FTAnimationManager sharedManager] slideInAnimationFor:view direction:kFTAnimationBottom duration:.33f delegate:self startSelector:NULL stopSelector:NULL];
+    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [view.layer addAnimation:anim forKey:@"MySpecialAnimation"];
     
     /////////////////////////
     
