@@ -50,7 +50,6 @@
 
 -(void)doInitFrames
 {
-    //NSUInteger picCount = _story.pictures.count;
     for (UIImage *pic in _story.pictures)
     {
         TMDFrame *frame = [TMDFrame new];
@@ -67,20 +66,8 @@
         frame.outAnimation = [self groupWithAnimations:@[outAnimation]];
         
         
-        CABasicAnimation *animationStep1 = [CABasicAnimation animationWithKeyPath:@"opacity"];
-        animationStep1.fromValue = @(1.f);
-        animationStep1.toValue = @(1.f);
-        animationStep1.duration = 1.f;
         
-//        CABasicAnimation *animationStep2 = [CABasicAnimation animationWithKeyPath:frame.animationKey];
-//        animationStep2.fromValue = @(1.f);
-//        animationStep2.toValue = @(0.f);
-//        animationStep2.duration = 1.f;
-        CAAnimationGroup *animGroup = [CAAnimationGroup animation];
-        animGroup.animations = @[animationStep1];
-        animGroup.duration = 2.f;
-        animGroup.delegate = self;
-        frame.stageAnimation = animGroup;
+        frame.stageAnimation = [self groupWithAnimations:@[[CAAnimation animation]]];
         
         [_frames addObject:frame];
     }
