@@ -11,4 +11,5 @@
 
 @interface TMDStoryView : UIView
 -(void)setStory:(TMDStory *)aStory;
+-(void)play;
 @end

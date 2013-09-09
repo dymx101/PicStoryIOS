@@ -8,10 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum
+{
+    kTMDFrameAnimStateIn = 0
+    , kTMDFrameAnimStateAnim
+    , kTMDFrameAnimStateOut
+}ETMDFrameAnimState;
+
 @interface TMDFrame : NSObject
-@property (copy)    NSString            *imagePath;
-@property (strong)  CAAnimationGroup    *animationGroup;
-@property (strong)  CAAnimation         *inAnimation;
-@property (strong)  CAAnimation         *outAnimation;
+@property (strong)    UIImage           *pic;
+
+@property (strong)  CAAnimationGroup         *inAnimation;
+@property (strong)  CAAnimationGroup         *stageAnimation;
+@property (strong)  CAAnimationGroup         *outAnimation;
+
+@property (strong) CALayer              *layer;
+@property (assign)  ETMDFrameAnimState  state;
 
 @end

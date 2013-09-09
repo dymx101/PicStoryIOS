@@ -77,6 +77,7 @@
     
     //_viewStory = [[TMDStoryView alloc] initWithFrame:[self frameScreen]];
     [_viewStory setStory:story];
+    [_viewStory play];
     //[self.view addSubview:_viewStory];
 }
 

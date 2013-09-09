@@ -9,9 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "TMDStory.h"
 
+@protocol TMDMovieDelegate
+@required
+-(CGRect)movieRect;
+-(void)addLayer:(CALayer *)aLayer;
+@end
+
 @interface TMDMovie : NSObject
-@property (strong) TMDStory             *story;
-@property (strong) NSMutableArray       *frames;
+
+@property (strong) NSMutableArray           *frames;
+@property (weak)    id<TMDMovieDelegate>    delegate;
 
 -(id)initWithStory:(TMDStory *)aStory;
+-(void)play;
 @end
