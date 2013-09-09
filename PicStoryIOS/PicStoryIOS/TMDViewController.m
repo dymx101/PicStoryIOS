@@ -14,13 +14,18 @@
 #import "FTAnimation.h"
 #import "FTAnimationManager.h"
 
+#import "TMDStoryView.h"
+
 @interface TMDViewController ()
+@property (weak, nonatomic) IBOutlet TMDStoryView *viewStory;
+
 
 @end
 
 @implementation TMDViewController
 {
-    CALayer *_layer;
+    CALayer         *_layer;
+    //TMDStoryView    *_storyView;
 }
 
 - (void)viewDidLoad
@@ -31,7 +36,48 @@
     //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startStoryAction:)];
     //[self.view addGestureRecognizer:tap];
 	
-    [self testAnimation];
+    //[self testAnimation];
+    [self setLayout];
+    [self createStory];
+}
+
+-(void)setLayout
+{
+    float screenRatio = [UIScreen mainScreen].bounds.size.width / [UIScreen mainScreen].bounds.size.height;
+    if (screenRatio < 1.f)
+    {
+        screenRatio = 1.f / screenRatio;
+    }
+    
+    CGFloat ratio = screenRatio;
+    NSLayoutConstraint *constraint = [NSLayoutConstraint
+                                      constraintWithItem:_viewStory
+                                      attribute:NSLayoutAttributeWidth
+                                      relatedBy:NSLayoutRelationEqual
+                                      toItem:_viewStory
+                                      attribute:NSLayoutAttributeHeight
+                                      multiplier:ratio
+                                      constant:0];
+    constraint.priority = 1000;
+    [_viewStory addConstraint:constraint];
+}
+
+-(void)createStory
+{
+    TMDStory *story = [TMDStory new];
+    story.title = @"Test Story";
+    story.userName = @"TMD";
+    
+    for (int i = 1; i <= 10; i++)
+    {
+        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [story.pictures addObject:image];
+    }
+    
+    //_viewStory = [[TMDStoryView alloc] initWithFrame:[self frameScreen]];
+    [_viewStory setStory:story];
+    //[self.view addSubview:_viewStory];
 }
 
 -(CGRect)frameScreen
@@ -39,142 +85,10 @@
     return CGRectMake(0, 120, 320, 240);
 }
 
--(CGRect)frameLeftHide
-{
-    return CGRectMake(-320, 120, 320, 240);
-}
-
--(CGRect)frameRightHide
-{
-    return CGRectMake(320, 120, 320, 240);
-}
-
--(CGRect)frameTopHide
-{
-    return CGRectMake(0, -240, 320, 240);
-}
-
--(CGRect)frameBottomHide
-{
-    return CGRectMake(0, 240, 320, 240);
-}
-
--(CGRect)frameZoomOut
-{
-    return CGRectMake(-160, 0, 640, 480);
-}
-
--(CGRect)frameZoomIn
-{
-    return CGRectMake(160, 240, 0, 0);
-}
-
--(CGRect)frameRandom
-{
-    int i = arc4random() % 8;
-    switch (i)
-    {
-        case 0:
-            return [self frameLeftHide];
-            
-        case 1:
-            return [self frameTopHide];
-            
-        case 2:
-            return [self frameRightHide];
-            
-        case 3:
-            return [self frameBottomHide];
-            
-        case 4:
-        case 5:
-            return [self frameZoomOut];
-            
-        case 6:
-        case 7:
-            return [self frameZoomIn];
-            
-        default:
-            break;
-    }
-    
-    return [self frameScreen];
-}
-
--(void)randomMoveAnimationWithImage:(UIImage *)aImage
-{
-    if (aImage)
-    {
-        UIView *view = [[UIView alloc] initWithFrame:[self frameRandom]];
-        
-        UIImageView *iv = [[UIImageView alloc] initWithImage:aImage];
-        iv.frame = view.bounds;
-        iv.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [view addSubview:iv];
-        
-        [self.view addSubview:view];
-        
-        [UIView animateWithDuration:.2f animations:^{
-            view.frame = [self frameScreen];
-        } completion:^(BOOL finished) {
-            [self performSelector:@selector(testAnimation) withObject:nil afterDelay:2];
-        }];
-    }
-}
-
--(void)randomAlphaAnimationWithImage:(UIImage *)aImage
-{
-    if (aImage)
-    {
-        UIView *view = [[UIView alloc] initWithFrame:[self frameScreen]];
-        
-        UIImageView *iv = [[UIImageView alloc] initWithImage:aImage];
-        iv.frame = view.bounds;
-        iv.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [view addSubview:iv];
-        
-        [self.view addSubview:view];
-        
-        view.alpha = 0.f;
-        [UIView animateWithDuration:.2f animations:^{
-            view.alpha = 1;
-        } completion:^(BOOL finished) {
-            [self performSelector:@selector(testAnimation) withObject:nil afterDelay:2];
-        }];
-    }
-}
-
--(void)randomAnimationWithImage:(UIImage *)aImage
-{
-    int rnd = arc4random() % 3;
-    switch (rnd)
-    {
-        case 0:
-        case 1:
-            [self randomMoveAnimationWithImage:aImage];
-            break;
-            
-        case 2:
-            [self randomAlphaAnimationWithImage:aImage];
-            break;
-            
-        default:
-            break;
-    }
-}
-
 -(void)testAnimation
 {
-    static int num = 1;
-    NSString *imageName = [NSString stringWithFormat:@"%d.jpg", num];
-    UIImage *image = [UIImage imageNamed:imageName];
-    num++;
-    if (num > 10)
-    {
-        num = 1;
-    }
     
-    [self randomAnimationWithImage:image];
+    //[self randomAnimationWithImage:image];
     
     //[TMDLayerAnimation pulse:view.layer];
     
@@ -253,6 +167,11 @@
     [self testAnimation];
     //TMDStoryTestVC *vc = [TMDStoryTestVC new];
     //[self presentViewController:vc animated:YES completion:nil];
+}
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    
 }
 
 @end

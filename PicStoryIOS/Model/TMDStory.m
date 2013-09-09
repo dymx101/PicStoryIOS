@@ -10,4 +10,13 @@
 
 @implementation TMDStory
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _pictures = [NSMutableArray array];
+    }
+    return self;
+}
+
 @end
