@@ -70,7 +70,7 @@
         UIImage *image = [UIImage imageNamed:imageName];
         [story.pictures addObject:image];
     }
-    [story.pictures addObject:[NSNull null]];
+    //[story.pictures addObject:[NSNull null]];
     
     [_viewStory setStory:story];
     [_viewStory play];

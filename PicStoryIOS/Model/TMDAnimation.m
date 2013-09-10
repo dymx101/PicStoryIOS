@@ -7,6 +7,7 @@
 //
 
 #import "TMDAnimation.h"
+#import <CoreImage/CoreImage.h>
 
 #define DEGREE_TO_RADIAN(x)     (x) * M_PI / 180.f
 
@@ -20,11 +21,13 @@
 
 #define TRANS_TYPE_CAMERA_OPEN      @"cameraIrisHollowOpen"
 #define TRANS_TYPE_CAMERA_CLOSE     @"cameraIrisHollowClose"
+#define TRANS_TYPE_CAMERA_ROTATE    @"rotate"
 
 
 @implementation TMDAnimation
+DEF_SINGLETON(TMDAnimation)
 
-+(CABasicAnimation *)rotate:(int)aDegree
+-(CABasicAnimation *)rotate:(int)aDegree
 {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     animation.toValue = @(DEGREE_TO_RADIAN(aDegree));
@@ -32,7 +35,7 @@
     return animation;
 }
 
-+(CABasicAnimation *)opacityFrom:(float)aFrom to:(float)aTo
+-(CABasicAnimation *)opacityFrom:(float)aFrom to:(float)aTo
 {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     animation.fromValue = @(aFrom);
@@ -41,7 +44,7 @@
     return animation;
 }
 
-+(CABasicAnimation *)translateFrom:(CGPoint)aFrom to:(CGPoint)aTo
+-(CABasicAnimation *)translateFrom:(CGPoint)aFrom to:(CGPoint)aTo
 {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
     animation.fromValue = [NSValue valueWithCGPoint:aFrom];
@@ -51,7 +54,7 @@
 }
 
 #pragma mark - transitions
-+(CATransition *)transitionPushFromLeft
+-(CATransition *)transitionPushFromLeft
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionPush;
@@ -60,7 +63,7 @@
     return transition;
 }
 
-+(CATransition *)transitionPushFromRight
+-(CATransition *)transitionPushFromRight
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionPush;
@@ -69,7 +72,7 @@
     return transition;
 }
 
-+(CATransition *)transitionPushFromBottom
+-(CATransition *)transitionPushFromBottom
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionPush;
@@ -78,7 +81,7 @@
     return transition;
 }
 
-+(CATransition *)transitionPushFromTop
+-(CATransition *)transitionPushFromTop
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionPush;
@@ -88,7 +91,7 @@
 }
 
 //////////
-+(CATransition *)transitionMoveInFromTop
+-(CATransition *)transitionMoveInFromTop
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionMoveIn;
@@ -97,7 +100,7 @@
     return transition;
 }
 
-+(CATransition *)transitionMoveInFromBottom
+-(CATransition *)transitionMoveInFromBottom
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionMoveIn;
@@ -106,7 +109,7 @@
     return transition;
 }
 
-+(CATransition *)transitionMoveInFromLeft
+-(CATransition *)transitionMoveInFromLeft
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionMoveIn;
@@ -115,7 +118,7 @@
     return transition;
 }
 
-+(CATransition *)transitionMoveInFromRight
+-(CATransition *)transitionMoveInFromRight
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionMoveIn;
@@ -126,7 +129,7 @@
 
 
 ////
-+(CATransition *)transitionRevalFromTop
+-(CATransition *)transitionRevalFromTop
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionReveal;
@@ -135,7 +138,7 @@
     return transition;
 }
 
-+(CATransition *)transitionRevalFromBottom
+-(CATransition *)transitionRevalFromBottom
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionReveal;
@@ -144,7 +147,7 @@
     return transition;
 }
 
-+(CATransition *)transitionRevalFromLeft
+-(CATransition *)transitionRevalFromLeft
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionReveal;
@@ -153,7 +156,7 @@
     return transition;
 }
 
-+(CATransition *)transitionRevalFromRight
+-(CATransition *)transitionRevalFromRight
 {
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionReveal;
@@ -165,7 +168,7 @@
 ///////
 
 
-+(CATransition *)transitionFlipFromTop
+-(CATransition *)transitionFlipFromTop
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_FLIP;
@@ -174,7 +177,7 @@
     return transition;
 }
 
-+(CATransition *)transitionFlipFromBottom
+-(CATransition *)transitionFlipFromBottom
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_FLIP;
@@ -183,7 +186,7 @@
     return transition;
 }
 
-+(CATransition *)transitionFlipFromLeft
+-(CATransition *)transitionFlipFromLeft
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_FLIP;
@@ -192,7 +195,7 @@
     return transition;
 }
 
-+(CATransition *)transitionFlipFromRight
+-(CATransition *)transitionFlipFromRight
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_FLIP;
@@ -202,7 +205,7 @@
 }
 
 /////////////
-+(CATransition *)transitionCubeFromTop
+-(CATransition *)transitionCubeFromTop
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_CUBE;
@@ -211,7 +214,7 @@
     return transition;
 }
 
-+(CATransition *)transitionCubeFromBottom
+-(CATransition *)transitionCubeFromBottom
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_CUBE;
@@ -220,7 +223,7 @@
     return transition;
 }
 
-+(CATransition *)transitionCubeFromLeft
+-(CATransition *)transitionCubeFromLeft
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_CUBE;
@@ -229,7 +232,7 @@
     return transition;
 }
 
-+(CATransition *)transitionCubeFromRight
+-(CATransition *)transitionCubeFromRight
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_CUBE;
@@ -239,7 +242,7 @@
 }
 
 ///////
-+(CATransition *)transitionPageCurlFromTop
+-(CATransition *)transitionPageCurlFromTop
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_PAGE_CURL;
@@ -248,7 +251,7 @@
     return transition;
 }
 
-+(CATransition *)transitionPageCurlFromBottom
+-(CATransition *)transitionPageCurlFromBottom
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_PAGE_CURL;
@@ -257,7 +260,7 @@
     return transition;
 }
 
-+(CATransition *)transitionPageCurlFromLeft
+-(CATransition *)transitionPageCurlFromLeft
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_PAGE_CURL;
@@ -266,7 +269,7 @@
     return transition;
 }
 
-+(CATransition *)transitionPageCurlFromRight
+-(CATransition *)transitionPageCurlFromRight
 {
     CATransition *transition = [CATransition animation];
     transition.type = TRANS_TYPE_PAGE_CURL;
@@ -275,8 +278,45 @@
     return transition;
 }
 
+///////
+-(CATransition *)transitionPageUnCurlFromTop
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = TRANS_TYPE_PAGE_UN_CURL;
+    transition.subtype = kCATransitionFromTop;
+    
+    return transition;
+}
+
+-(CATransition *)transitionPageUnCurlFromBottom
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = TRANS_TYPE_PAGE_UN_CURL;
+    transition.subtype = kCATransitionFromBottom;
+    
+    return transition;
+}
+
+-(CATransition *)transitionPageUnCurlFromLeft
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = TRANS_TYPE_PAGE_UN_CURL;
+    transition.subtype = kCATransitionFromLeft;
+    
+    return transition;
+}
+
+-(CATransition *)transitionPageUnCurlFromRight
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = TRANS_TYPE_PAGE_UN_CURL;
+    transition.subtype = kCATransitionFromRight;
+    
+    return transition;
+}
+
 /////////////////////
-+(CATransition *)transitionFade
+-(CATransition *)transitionFade
 {
     CATransition *trans = [CATransition animation];
     trans.type = kCATransitionFade;
@@ -284,11 +324,89 @@
     return trans;
 }
 
-+(CATransition *)transitionSuck
+-(CATransition *)transitionSuck
 {
     CATransition *trans = [CATransition animation];
     trans.type = TRANS_TYPE_SUCK;
     
+//    CIFilter* filter = [CIFilter filterWithName:TRANS_TYPE_SUCK];
+//    [filter setValue:[NSValue valueWithCGPoint:CGPointMake(300, 100)] forKey:@"inputPosition"];
+//    trans.filter = filter;
+    
+    return trans;
+}
+
+-(CATransition *)transitionRotate
+{
+    CATransition *trans = [CATransition animation];
+    trans.type = TRANS_TYPE_CAMERA_ROTATE;
+    
+    return trans;
+}
+
+-(CATransition *)transitionRipple
+{
+    CATransition *trans = [CATransition animation];
+    trans.type = TRANS_TYPE_RIPPLE;
+    
+    return trans;
+}
+
+-(CATransition *)transitionCameraOpen
+{
+    CATransition *trans = [CATransition animation];
+    trans.type = TRANS_TYPE_CAMERA_OPEN;
+    
+    return trans;
+}
+
+-(CATransition *)transitionCameraClose
+{
+    CATransition *trans = [CATransition animation];
+    trans.type = TRANS_TYPE_CAMERA_CLOSE;
+    
+    return trans;
+}
+
+-(NSString *)selectorWithType:(int)aType subType:(int)aSubType
+{
+    static NSArray *selectors = nil;
+    if (selectors == nil)
+    {
+        selectors = @[
+                      @[@"transitionPushFromLeft", @"transitionPushFromRight", @"transitionPushFromTop", @"transitionPushFromBottom"]
+                      , @[@"transitionMoveInFromTop", @"transitionMoveInFromBottom", @"transitionMoveInFromLeft", @"transitionMoveInFromRight"]
+                      , @[@"transitionRevalFromTop", @"transitionRevalFromBottom", @"transitionRevalFromLeft", @"transitionRevalFromRight"]
+                      , @[@"transitionFlipFromTop", @"transitionFlipFromBottom", @"transitionFlipFromLeft", @"transitionFlipFromRight"]
+                      
+                      , @[@"transitionCubeFromTop", @"transitionCubeFromBottom", @"transitionCubeFromLeft", @"transitionCubeFromRight"]
+                      , @[@"transitionPageCurlFromTop", @"transitionPageCurlFromBottom", @"transitionPageCurlFromLeft", @"transitionPageCurlFromRight"]
+                      , @[@"transitionPageUnCurlFromTop", @"transitionPageUnCurlFromBottom", @"transitionPageUnCurlFromLeft", @"transitionPageUnCurlFromRight"]
+                      
+                      , @[@"transitionFade", @"transitionSuck", @"transitionRipple", @"transitionRotate"]
+                      ];
+    }
+    
+    if (aType < selectors.count)
+    {
+        NSArray *subSelectors = selectors[aType];
+        if (aSubType < subSelectors.count)
+        {
+            NSString *str = subSelectors[aSubType];
+            return str;
+        }
+    }
+    
+    return nil;
+}
+
+-(CATransition *)transitionRandom
+{
+    int rnd = arc4random() % 8;
+    int rndSub = arc4random() % 4;
+    
+    NSString *selStr = [self selectorWithType:rnd subType:rndSub];
+    CATransition *trans = [self performSelector:NSSelectorFromString(selStr)];
     return trans;
 }
 

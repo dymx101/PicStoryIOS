@@ -30,6 +30,7 @@
     return self;
 }
 
+#define STAGE_TIME  (5.f)
 -(CAAnimationGroup *)groupWithAnimations:(NSArray *)aAnimations
 {
     if (aAnimations.count)
@@ -42,7 +43,7 @@
             duration += animation.duration;
         }
         
-        animGroup.duration = (duration ? duration : 2.f);
+        animGroup.duration = (duration ? duration : STAGE_TIME);
         animGroup.delegate = self;
         return animGroup;
     }
@@ -66,14 +67,16 @@
         frame.inAnimation = anim;//[self groupWithAnimations:@[anim]];
         
         
-        CAAnimation *outAnimation = [TMDAnimation transitionSuck];
-        outAnimation.duration = 1.f;
+        CAAnimation *outAnimation = [[TMDAnimation sharedInstance] transitionRandom];
+        outAnimation.duration = .5f;
         outAnimation.delegate = self;
         frame.outAnimation = outAnimation;//[self groupWithAnimations:@[outAnimation]];
         
         
-        
-        frame.stageAnimation = [self groupWithAnimations:@[[CAAnimation animation]]];
+        CAAnimation *stageAnim = [CAAnimation animation];
+        stageAnim.duration = STAGE_TIME;
+        stageAnim.delegate = self;
+        frame.stageAnimation = stageAnim;//[self groupWithAnimations:@[[CAAnimation animation]]];
         
         [_frames addObject:frame];
     }
@@ -148,6 +151,14 @@
             {
                 frame.layer.contents = (id)(frameNext.pic.CGImage);
             }
+            else
+            {
+                TMDFrame *frameFirst = [self frameAt:0];
+                if (frameFirst)
+                {
+                    frame.layer.contents = (id)(frameFirst.pic.CGImage);
+                }
+            }
             
             frame.state = kTMDFrameAnimStateOut;
         }
@@ -155,6 +166,13 @@
             
         case kTMDFrameAnimStateOut:
         {
+            // change the transition animation
+            CAAnimation *outAnimation = [[TMDAnimation sharedInstance] transitionRandom];
+            outAnimation.duration = .5f;
+            outAnimation.delegate = self;
+            frame.outAnimation = outAnimation;
+            
+            //
             frame.layer.contents = (id)(frame.pic.CGImage);
             [frame.layer removeFromSuperlayer];
             frame.state = kTMDFrameAnimStateIn;
