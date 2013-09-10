@@ -20,6 +20,7 @@
 		EA53A00F17CB5EC8004EBAD4 /* TMDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA53A00E17CB5EC8004EBAD4 /* TMDViewController.m */; };
 		EA53A01217CB5EC8004EBAD4 /* TMDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA53A01017CB5EC8004EBAD4 /* TMDViewController.xib */; };
 		EA9ABEB017DDA77700D82C0A /* TMDStoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9ABEAF17DDA77700D82C0A /* TMDStoryView.m */; };
+		EA9FCF8017DEAD0800859FBB /* TMDAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9FCF7F17DEAD0800859FBB /* TMDAnimation.m */; };
 		EAB3C57717D476C700A55A65 /* TMDViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C57617D476C700A55A65 /* TMDViewAnimation.m */; };
 		EAB3C57B17D4840300A55A65 /* TMDStory.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C57A17D4840300A55A65 /* TMDStory.m */; };
 		EAB3C57E17D4854C00A55A65 /* TMDMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C57D17D4854C00A55A65 /* TMDMovie.m */; };
@@ -62,6 +63,8 @@
 		EA53A01117CB5EC8004EBAD4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMDViewController.xib; sourceTree = "<group>"; };
 		EA9ABEAE17DDA77700D82C0A /* TMDStoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDStoryView.h; sourceTree = "<group>"; };
 		EA9ABEAF17DDA77700D82C0A /* TMDStoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDStoryView.m; sourceTree = "<group>"; };
+		EA9FCF7E17DEAD0800859FBB /* TMDAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDAnimation.h; sourceTree = "<group>"; };
+		EA9FCF7F17DEAD0800859FBB /* TMDAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDAnimation.m; sourceTree = "<group>"; };
 		EAB3C57517D476C700A55A65 /* TMDViewAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDViewAnimation.h; sourceTree = "<group>"; };
 		EAB3C57617D476C700A55A65 /* TMDViewAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDViewAnimation.m; sourceTree = "<group>"; };
 		EAB3C57917D4840300A55A65 /* TMDStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDStory.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				EAB3C58017D485D300A55A65 /* TMDFrame.m */,
 				EA9ABEAE17DDA77700D82C0A /* TMDStoryView.h */,
 				EA9ABEAF17DDA77700D82C0A /* TMDStoryView.m */,
+				EA9FCF7E17DEAD0800859FBB /* TMDAnimation.h */,
+				EA9FCF7F17DEAD0800859FBB /* TMDAnimation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				EAB3C57E17D4854C00A55A65 /* TMDMovie.m in Sources */,
 				EAB3C58117D485D300A55A65 /* TMDFrame.m in Sources */,
 				EA9ABEB017DDA77700D82C0A /* TMDStoryView.m in Sources */,
+				EA9FCF8017DEAD0800859FBB /* TMDAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

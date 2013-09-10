@@ -40,13 +40,14 @@
 -(void)doInit
 {
     self.backgroundColor = [UIColor clearColor];
+    self.clipsToBounds = YES;
 }
 
 
 -(void)setStory:(TMDStory *)aStory
 {
     _story = aStory;
-    _movie = [[TMDMovie alloc] initWithStory:_story];
+    _movie = [[TMDMovie alloc] initWithStory:_story delegate:self];
     _movie.delegate = self;
 }
 

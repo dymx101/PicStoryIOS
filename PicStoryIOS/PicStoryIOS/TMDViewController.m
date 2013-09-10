@@ -63,6 +63,7 @@
     story.title = @"Test Story";
     story.userName = @"TMD";
     
+    [story.pictures addObject:[NSNull null]];
     for (int i = 1; i <= 10; i++)
     {
         NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];

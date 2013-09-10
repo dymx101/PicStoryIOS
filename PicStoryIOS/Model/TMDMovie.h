@@ -20,6 +20,6 @@
 @property (strong) NSMutableArray           *frames;
 @property (weak)    id<TMDMovieDelegate>    delegate;
 
--(id)initWithStory:(TMDStory *)aStory;
+-(id)initWithStory:(TMDStory *)aStory delegate:(id)aDelegate;
 -(void)play;
 @end

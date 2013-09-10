@@ -8,6 +8,7 @@
 
 #import "TMDMovie.h"
 #import "TMDFrame.h"
+#import "TMDAnimation.h"
 
 @implementation TMDMovie
 {
@@ -15,11 +16,12 @@
     NSUInteger                      _currentFrameIndex;
 }
 
--(id)initWithStory:(TMDStory *)aStory
+-(id)initWithStory:(TMDStory *)aStory delegate:(id)aDelegate
 {
     self = [super init];
     if (self)
     {
+        _delegate = aDelegate;
         _frames = [NSMutableArray array];
         _story = aStory;
         [self doInitFrames];
@@ -53,17 +55,21 @@
     for (UIImage *pic in _story.pictures)
     {
         TMDFrame *frame = [TMDFrame new];
-        frame.pic = pic;
+        frame.pic = [pic isKindOfClass:[UIImage class]] ? pic : nil;
         
-        CABasicAnimation *inAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        inAnimation.toValue = @(2 * M_PI);
-        inAnimation.duration = .3f;
-        frame.inAnimation = [self groupWithAnimations:@[inAnimation]];
+//        CABasicAnimation *inAnimation = [TMDAnimation rotate:360];
+//        inAnimation.duration = .3f;
         
-        CABasicAnimation *outAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        outAnimation.toValue = @(2 * M_PI);
-        outAnimation.duration = .3f;
-        frame.outAnimation = [self groupWithAnimations:@[outAnimation]];
+        CAAnimation *anim = [CAAnimation animation];
+        anim.duration = .1f;
+        anim.delegate = self;
+        frame.inAnimation = anim;//[self groupWithAnimations:@[anim]];
+        
+        
+        CAAnimation *outAnimation = [TMDAnimation transitionFade];
+        outAnimation.duration = 1.f;
+        outAnimation.delegate = self;
+        frame.outAnimation = outAnimation;//[self groupWithAnimations:@[outAnimation]];
         
         
         
@@ -107,9 +113,22 @@
     return layer;
 }
 
+-(TMDFrame *)frameAt:(NSUInteger)aIndex
+{
+    if (aIndex < _frames.count)
+    {
+        return _frames[aIndex];
+    }
+    
+    return nil;
+}
+
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    TMDFrame *frame = _frames[_currentFrameIndex];
+    TMDFrame *frame = [self frameAt:_currentFrameIndex];
+    TMDFrame *framePrev = [self frameAt:_currentFrameIndex - 1];
+    TMDFrame *frameNext = [self frameAt:_currentFrameIndex + 1];
+    
     [CATransaction setDisableActions:YES];
     
     switch (frame.state)
@@ -118,20 +137,25 @@
         {
             [frame.layer addAnimation:frame.stageAnimation forKey:@"anim"];
             frame.state = kTMDFrameAnimStateAnim;
-            //[frame.layer setValue:frame.animation.fromValue forKey:frame.animationKey];
         }
             break;
             
         case kTMDFrameAnimStateAnim:
         {
             [frame.layer addAnimation:frame.outAnimation forKey:@"out"];
+            
+            if (frameNext)
+            {
+                frame.layer.contents = (id)(frameNext.pic.CGImage);
+            }
+            
             frame.state = kTMDFrameAnimStateOut;
-            //[frame.layer setValue:frame.animation.toValue forKey:frame.animationKey];
         }
             break;
             
         case kTMDFrameAnimStateOut:
         {
+            frame.layer.contents = (id)(frame.pic.CGImage);
             [frame.layer removeFromSuperlayer];
             frame.state = kTMDFrameAnimStateIn;
             

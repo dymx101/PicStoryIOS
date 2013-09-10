@@ -18,9 +18,9 @@ typedef enum
 @interface TMDFrame : NSObject
 @property (strong)    UIImage           *pic;
 
-@property (strong)  CAAnimationGroup         *inAnimation;
-@property (strong)  CAAnimationGroup         *stageAnimation;
-@property (strong)  CAAnimationGroup         *outAnimation;
+@property (strong)  CAAnimation         *inAnimation;
+@property (strong)  CAAnimation         *stageAnimation;
+@property (strong)  CAAnimation         *outAnimation;
 
 @property (strong) CALayer              *layer;
 @property (assign)  ETMDFrameAnimState  state;
