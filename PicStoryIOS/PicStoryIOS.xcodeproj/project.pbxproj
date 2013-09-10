@@ -22,6 +22,7 @@
 		EA9ABEB017DDA77700D82C0A /* TMDStoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9ABEAF17DDA77700D82C0A /* TMDStoryView.m */; };
 		EA9FCF8017DEAD0800859FBB /* TMDAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9FCF7F17DEAD0800859FBB /* TMDAnimation.m */; };
 		EA9FCF8217DEDE6C00859FBB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FCF8117DEDE6C00859FBB /* CoreImage.framework */; };
+		EA9FCF8417DEFB9300859FBB /* DazFlake.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9FCF8317DEFB9300859FBB /* DazFlake.png */; };
 		EAB3C57717D476C700A55A65 /* TMDViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C57617D476C700A55A65 /* TMDViewAnimation.m */; };
 		EAB3C57B17D4840300A55A65 /* TMDStory.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C57A17D4840300A55A65 /* TMDStory.m */; };
 		EAB3C57E17D4854C00A55A65 /* TMDMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB3C57D17D4854C00A55A65 /* TMDMovie.m */; };
@@ -67,6 +68,7 @@
 		EA9FCF7E17DEAD0800859FBB /* TMDAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDAnimation.h; sourceTree = "<group>"; };
 		EA9FCF7F17DEAD0800859FBB /* TMDAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDAnimation.m; sourceTree = "<group>"; };
 		EA9FCF8117DEDE6C00859FBB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		EA9FCF8317DEFB9300859FBB /* DazFlake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DazFlake.png; sourceTree = "<group>"; };
 		EAB3C57517D476C700A55A65 /* TMDViewAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDViewAnimation.h; sourceTree = "<group>"; };
 		EAB3C57617D476C700A55A65 /* TMDViewAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDViewAnimation.m; sourceTree = "<group>"; };
 		EAB3C57917D4840300A55A65 /* TMDStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDStory.h; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				EABC24FF17D46EEF005F93F1 /* ThirdParty */,
 				EABC24FD17D4679C005F93F1 /* mask.jpg */,
 				EABC24FB17D46532005F93F1 /* sample.jpg */,
+				EA9FCF8317DEFB9300859FBB /* DazFlake.png */,
 				EA539FFB17CB5EC8004EBAD4 /* PicStoryIOS */,
 				EA539FF417CB5EC8004EBAD4 /* Frameworks */,
 				EA539FF317CB5EC8004EBAD4 /* Products */,
@@ -292,6 +295,7 @@
 				EAB3C59317D4917A00A55A65 /* 8.jpg in Resources */,
 				EAB3C59417D4917A00A55A65 /* 9.jpg in Resources */,
 				EAB3C59517D4917A00A55A65 /* 10.jpg in Resources */,
+				EA9FCF8417DEFB9300859FBB /* DazFlake.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
