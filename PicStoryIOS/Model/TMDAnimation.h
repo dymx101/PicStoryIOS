@@ -15,6 +15,40 @@
 +(CABasicAnimation *)translateFrom:(CGPoint)aFrom to:(CGPoint)aTo;
 
 #pragma mark -
-+(CATransition *)transitionFade;
+
 +(CATransition *)transitionPushFromLeft;
++(CATransition *)transitionPushFromRight;
++(CATransition *)transitionPushFromBottom;
++(CATransition *)transitionPushFromTop;
+
++(CATransition *)transitionMoveInFromTop;
++(CATransition *)transitionMoveInFromBottom;
++(CATransition *)transitionMoveInFromLeft;
++(CATransition *)transitionMoveInFromRight;
+
++(CATransition *)transitionRevalFromTop;
++(CATransition *)transitionRevalFromBottom;
++(CATransition *)transitionRevalFromLeft;
++(CATransition *)transitionRevalFromRight;
+
++(CATransition *)transitionFlipFromTop;
++(CATransition *)transitionFlipFromBottom;
++(CATransition *)transitionFlipFromLeft;
++(CATransition *)transitionFlipFromRight;
+
++(CATransition *)transitionCubeFromTop;
++(CATransition *)transitionCubeFromBottom;
++(CATransition *)transitionCubeFromLeft;
++(CATransition *)transitionCubeFromRight;
+
++(CATransition *)transitionPageCurlFromTop;
++(CATransition *)transitionPageCurlFromBottom;
++(CATransition *)transitionPageCurlFromLeft;
++(CATransition *)transitionPageCurlFromRight;
+
+
+
++(CATransition *)transitionFade;
++(CATransition *)transitionSuck;
+
 @end

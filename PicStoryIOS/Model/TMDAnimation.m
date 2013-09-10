@@ -38,7 +38,7 @@
     return animation;
 }
 
-#pragma mark -
+#pragma mark - transitions
 +(CATransition *)transitionPushFromLeft
 {
     CATransition *transition = [CATransition animation];
@@ -48,6 +48,221 @@
     return transition;
 }
 
++(CATransition *)transitionPushFromRight
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromRight;
+    
+    return transition;
+}
+
++(CATransition *)transitionPushFromBottom
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromBottom;
+    
+    return transition;
+}
+
++(CATransition *)transitionPushFromTop
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    
+    return transition;
+}
+
+//////////
++(CATransition *)transitionMoveInFromTop
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromTop;
+    
+    return transition;
+}
+
++(CATransition *)transitionMoveInFromBottom
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromBottom;
+    
+    return transition;
+}
+
++(CATransition *)transitionMoveInFromLeft
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromLeft;
+    
+    return transition;
+}
+
++(CATransition *)transitionMoveInFromRight
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromRight;
+    
+    return transition;
+}
+
+
+////
++(CATransition *)transitionRevalFromTop
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromTop;
+    
+    return transition;
+}
+
++(CATransition *)transitionRevalFromBottom
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromBottom;
+    
+    return transition;
+}
+
++(CATransition *)transitionRevalFromLeft
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromLeft;
+    
+    return transition;
+}
+
++(CATransition *)transitionRevalFromRight
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromRight;
+    
+    return transition;
+}
+
+///////
+
++(CATransition *)transitionFlipFromTop
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"flip";
+    transition.subtype = kCATransitionFromTop;//@"fromTop";
+    
+    return transition;
+}
+
++(CATransition *)transitionFlipFromBottom
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"flip";
+    transition.subtype = kCATransitionFromBottom;//@"fromBottom";
+    
+    return transition;
+}
+
++(CATransition *)transitionFlipFromLeft
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"flip";
+    transition.subtype = kCATransitionFromLeft;//@"fromLeft";
+    
+    return transition;
+}
+
++(CATransition *)transitionFlipFromRight
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"flip";
+    transition.subtype = kCATransitionFromRight;//@"fromRight";
+    
+    return transition;
+}
+
+/////////////
++(CATransition *)transitionCubeFromTop
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"cube";
+    transition.subtype = kCATransitionFromTop;//@"fromTop";
+    
+    return transition;
+}
+
++(CATransition *)transitionCubeFromBottom
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"cube";
+    transition.subtype = kCATransitionFromBottom;//@"fromBottom";
+    
+    return transition;
+}
+
++(CATransition *)transitionCubeFromLeft
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"cube";
+    transition.subtype = kCATransitionFromLeft;//@"fromLeft";
+    
+    return transition;
+}
+
++(CATransition *)transitionCubeFromRight
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"cube";
+    transition.subtype = kCATransitionFromRight;//@"fromRight";
+    
+    return transition;
+}
+
+///////
++(CATransition *)transitionPageCurlFromTop
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"pageCurl";
+    transition.subtype = kCATransitionFromTop;
+    
+    return transition;
+}
+
++(CATransition *)transitionPageCurlFromBottom
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"pageCurl";
+    transition.subtype = kCATransitionFromBottom;
+    
+    return transition;
+}
+
++(CATransition *)transitionPageCurlFromLeft
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"pageCurl";
+    transition.subtype = kCATransitionFromLeft;
+    
+    return transition;
+}
+
++(CATransition *)transitionPageCurlFromRight
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"pageCurl";
+    transition.subtype = kCATransitionFromRight;
+    
+    return transition;
+}
+
+/////////////////////
 +(CATransition *)transitionFade
 {
     CATransition *trans = [CATransition animation];
@@ -56,4 +271,49 @@
     return trans;
 }
 
++(CATransition *)transitionSuck
+{
+    CATransition *trans = [CATransition animation];
+    trans.type = @"suckEffect";
+    
+    return trans;
+}
+
 @end
+
+
+
+
+
+///* 过渡效果
+// fade     //交叉淡化过渡(不支持过渡方向)
+// push     //新视图把旧视图推出去
+// moveIn   //新视图移到旧视图上面
+// reveal   //将旧视图移开,显示下面的新视图
+// cube     //立方体翻滚效果
+// oglFlip  //上下左右翻转效果
+// suckEffect   //收缩效果，如一块布被抽走(不支持过渡方向)
+// rippleEffect //滴水效果(不支持过渡方向)
+// pageCurl     //向上翻页效果
+// pageUnCurl   //向下翻页效果
+// cameraIrisHollowOpen  //相机镜头打开效果(不支持过渡方向)
+// cameraIrisHollowClose //相机镜头关上效果(不支持过渡方向)
+// */
+//
+///* 过渡方向
+// fromRight;
+// fromLeft;
+// fromTop;
+// fromBottom;
+// */
+//CATransition *animation = [CATransition animation];
+//animation.delegate = self;
+//animation.duration = 0.5f; //动画时长
+//animation.timingFunction = UIViewAnimationCurveEaseInOut;
+//animation.fillMode = kCAFillModeForwards;
+//animation.type = @"cube"; //过度效果
+//animation.subtype = @"formLeft"; //过渡方向
+//animation.startProgress = 0.0 //动画开始起点(在整体动画的百分比)
+//animation.endProgress = 1.0;  //动画停止终点(在整体动画的百分比)
+//animation.removedOnCompletion = NO;
+//[self.view.layer addAnimation:animation forKey:@"animation"];

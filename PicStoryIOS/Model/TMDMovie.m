@@ -66,7 +66,7 @@
         frame.inAnimation = anim;//[self groupWithAnimations:@[anim]];
         
         
-        CAAnimation *outAnimation = [TMDAnimation transitionFade];
+        CAAnimation *outAnimation = [TMDAnimation transitionSuck];
         outAnimation.duration = 1.f;
         outAnimation.delegate = self;
         frame.outAnimation = outAnimation;//[self groupWithAnimations:@[outAnimation]];
@@ -126,7 +126,7 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     TMDFrame *frame = [self frameAt:_currentFrameIndex];
-    TMDFrame *framePrev = [self frameAt:_currentFrameIndex - 1];
+    //TMDFrame *framePrev = [self frameAt:_currentFrameIndex - 1];
     TMDFrame *frameNext = [self frameAt:_currentFrameIndex + 1];
     
     [CATransaction setDisableActions:YES];

@@ -41,6 +41,7 @@
 {
     self.backgroundColor = [UIColor clearColor];
     self.clipsToBounds = YES;
+    self.layer.masksToBounds = YES;
 }
 
 

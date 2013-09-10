@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor darkGrayColor];
 
     [self setLayout];
     [self createStory];
@@ -70,6 +70,7 @@
         UIImage *image = [UIImage imageNamed:imageName];
         [story.pictures addObject:image];
     }
+    [story.pictures addObject:[NSNull null]];
     
     [_viewStory setStory:story];
     [_viewStory play];
