@@ -10,6 +10,18 @@
 
 #define DEGREE_TO_RADIAN(x)     (x) * M_PI / 180.f
 
+
+#define TRANS_TYPE_FLIP             @"flip"
+#define TRANS_TYPE_CUBE             @"cube"
+#define TRANS_TYPE_PAGE_CURL        @"pageCurl"
+#define TRANS_TYPE_SUCK             @"suckEffect"
+#define TRANS_TYPE_RIPPLE           @"rippleEffect"
+#define TRANS_TYPE_PAGE_UN_CURL     @"pageUnCurl"
+
+#define TRANS_TYPE_CAMERA_OPEN      @"cameraIrisHollowOpen"
+#define TRANS_TYPE_CAMERA_CLOSE     @"cameraIrisHollowClose"
+
+
 @implementation TMDAnimation
 
 +(CABasicAnimation *)rotate:(int)aDegree
@@ -152,10 +164,11 @@
 
 ///////
 
+
 +(CATransition *)transitionFlipFromTop
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"flip";
+    transition.type = TRANS_TYPE_FLIP;
     transition.subtype = kCATransitionFromTop;//@"fromTop";
     
     return transition;
@@ -164,7 +177,7 @@
 +(CATransition *)transitionFlipFromBottom
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"flip";
+    transition.type = TRANS_TYPE_FLIP;
     transition.subtype = kCATransitionFromBottom;//@"fromBottom";
     
     return transition;
@@ -173,7 +186,7 @@
 +(CATransition *)transitionFlipFromLeft
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"flip";
+    transition.type = TRANS_TYPE_FLIP;
     transition.subtype = kCATransitionFromLeft;//@"fromLeft";
     
     return transition;
@@ -182,7 +195,7 @@
 +(CATransition *)transitionFlipFromRight
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"flip";
+    transition.type = TRANS_TYPE_FLIP;
     transition.subtype = kCATransitionFromRight;//@"fromRight";
     
     return transition;
@@ -192,7 +205,7 @@
 +(CATransition *)transitionCubeFromTop
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"cube";
+    transition.type = TRANS_TYPE_CUBE;
     transition.subtype = kCATransitionFromTop;//@"fromTop";
     
     return transition;
@@ -201,7 +214,7 @@
 +(CATransition *)transitionCubeFromBottom
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"cube";
+    transition.type = TRANS_TYPE_CUBE;
     transition.subtype = kCATransitionFromBottom;//@"fromBottom";
     
     return transition;
@@ -210,7 +223,7 @@
 +(CATransition *)transitionCubeFromLeft
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"cube";
+    transition.type = TRANS_TYPE_CUBE;
     transition.subtype = kCATransitionFromLeft;//@"fromLeft";
     
     return transition;
@@ -219,7 +232,7 @@
 +(CATransition *)transitionCubeFromRight
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"cube";
+    transition.type = TRANS_TYPE_CUBE;
     transition.subtype = kCATransitionFromRight;//@"fromRight";
     
     return transition;
@@ -229,7 +242,7 @@
 +(CATransition *)transitionPageCurlFromTop
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"pageCurl";
+    transition.type = TRANS_TYPE_PAGE_CURL;
     transition.subtype = kCATransitionFromTop;
     
     return transition;
@@ -238,7 +251,7 @@
 +(CATransition *)transitionPageCurlFromBottom
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"pageCurl";
+    transition.type = TRANS_TYPE_PAGE_CURL;
     transition.subtype = kCATransitionFromBottom;
     
     return transition;
@@ -247,7 +260,7 @@
 +(CATransition *)transitionPageCurlFromLeft
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"pageCurl";
+    transition.type = TRANS_TYPE_PAGE_CURL;
     transition.subtype = kCATransitionFromLeft;
     
     return transition;
@@ -256,7 +269,7 @@
 +(CATransition *)transitionPageCurlFromRight
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"pageCurl";
+    transition.type = TRANS_TYPE_PAGE_CURL;
     transition.subtype = kCATransitionFromRight;
     
     return transition;
@@ -274,14 +287,12 @@
 +(CATransition *)transitionSuck
 {
     CATransition *trans = [CATransition animation];
-    trans.type = @"suckEffect";
+    trans.type = TRANS_TYPE_SUCK;
     
     return trans;
 }
 
 @end
-
-
 
 
 
